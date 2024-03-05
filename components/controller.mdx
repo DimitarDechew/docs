@@ -1,0 +1,37 @@
+---
+title: 'Controller'
+icon: 'gamepad-modern'
+---
+
+## Events
+
+Dispatch CRUD events if they're defined in the container Events section.
+- GetAll**ContainerName**Event
+- Created**ContainerName**Event
+- Updated**ContainerName**Event
+- Find**ContainerName**ByIdEvent
+- Delete**ContainerName**Event
+
+## Webhooks
+
+Dispatch CRUD webhooks if they exist in the database.
+- **containername**.listed
+- **containername**.created
+- **containername**.updated
+- **containername**.fetched
+- **containername**.deleted
+
+## Example
+
+```php
+<?php
+
+use App\Containers\Vendor\Anvil\Parents\AnvilController;
+
+class MyRestController extends AnvilController
+{
+    public bool $triggersWebhooks = true;
+
+    public bool $dispatchesEvent = true;
+}
+```

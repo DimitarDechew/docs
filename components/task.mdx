@@ -1,0 +1,32 @@
+---
+title: 'Task'
+icon: 'puzzle-piece'
+---
+
+The Anvil task handles all CRUD functions, if you want to run custom logic you can always override our methods.
+
+## Methods
+
+- runFetchAll
+- runFetch
+- runCreate
+- runUpdate
+- runDelete
+
+## Example
+
+```php
+<?php
+
+use App\Containers\Vendor\Anvil\Parents\AnvilTask;
+
+class MyTask extends AnvilTask
+{
+    public function runFetchAll()
+    {
+        /* My custom logic here */
+    }
+
+    /* Other functions work as usual */
+}
+```

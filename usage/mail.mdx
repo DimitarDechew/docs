@@ -1,0 +1,73 @@
+---
+title: 'Mail'
+icon: 'envelope'
+---
+
+## Overview
+
+Anvil mailing system allows you to create mailables on the fly.
+There's a single template for your emails and all content and buttons are created through our abstract Mail facade.
+
+## Getting started
+
+We must retrieve our Mailable through the Mail Task. It receives any number of arguments after the template name,
+so we can pass our properties to the mailable.
+
+<CodeGroup>
+```php Fetch the mailable
+app(MailTask::class)->find('UserSignUp', $user, $plan)
+```
+```php Mailable
+protected User $user;
+protected Plan $plan;
+
+public function __construct(User $user = null, Plan $plan = null)
+{
+    $this->user = $user;
+    $this->plan = $plan;
+}
+```
+</CodeGroup>
+
+## Variables
+
+The variables function should return an array with mapped properties (key -> model attributes array).
+Then all the properties can be used in the mail subject and body.
+
+```php Mailable
+public function variables() {
+
+    /*
+     * This is only used if you want to send
+     * test emails without supplying any entities
+     */
+    if($user === null) {
+        $this->user = UserFactory::createOne();
+    }
+
+    if($plan === null) {
+        // Missing entity handling
+    }
+
+    return [
+        'user' => $this->user->toArray(),
+        'plan' => $this->plan->toArray(),
+    ];
+}
+```
+
+
+
+## Action
+
+Actions allow adding a button with custom text and link to your email template.
+
+```php Mailable
+public function action(): ?array
+{
+    return [
+        'text' => 'View Dashboard',
+        'url' => 'https://laravel.test/dashboard'
+    ]
+}
+```

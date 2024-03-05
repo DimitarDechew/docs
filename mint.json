@@ -1,17 +1,17 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Anvil",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
+    "primary": "#18dcff",
+    "light": "#18dcff",
     "dark": "#0D9373",
     "anchors": {
-      "from": "#0D9373",
+      "from": "#18dcff",
       "to": "#07C983"
     }
   },
@@ -53,19 +53,21 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "quickstart"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Usage",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "usage/mail",
+        "usage/webhooks"
+      ]
+    },
+    {
+      "group": "Components",
+      "pages": [
+        "components/controller",
+        "components/task"
       ]
     },
     {
